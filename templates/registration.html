@@ -1,0 +1,29 @@
+{% extends 'starter-page.html' %}
+{% load static %}
+
+{% block content %}
+    <h1 class="text-center">Contacts Registered</h1>
+
+    <table class="table table-success container">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Subject</th>
+            <th>Message</th>
+            <th>Action</th>
+        </tr>
+
+        {% for registration in regall %}
+            <tr>
+                <td>{{ registration.name }}</td>
+                <td>{{ registration.email }}</td>
+                <td>{{ registration.subject }}</td>
+                <td>{{ registration.message }}</td>
+                <td>
+                    <a href="#" class="btn btn-outline-danger">Edit</a>
+                    <a href="/delete_Contact/{{ registration.id }}" class="btn btn-outline-primary">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
